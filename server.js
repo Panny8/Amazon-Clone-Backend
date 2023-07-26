@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config()
 const ProductRoute = require('./routes/productRoutes');
-const PORT = process.env.PORT || 5000
 const app = express();
 app.use(express.json())
 
@@ -13,7 +12,7 @@ app.get('/', (req, res) => {
 mongoose.connect(process.env.MONGO_URL)
 .then(() => {
     console.log('connected to mongodb')
-    app.listen(PORT, () => {
+    app.listen(3000, () => {
         console.log(`Server is up and running at port 3000`)
     })
 }).catch((error) => {
